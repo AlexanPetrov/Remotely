@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
 // testing githib - farhan
+// testing git 2 - farhan (main)
 const App = () => {
   return (
     <Router>
