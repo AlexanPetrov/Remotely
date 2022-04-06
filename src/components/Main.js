@@ -1,12 +1,16 @@
-import SearchButton from "./SearchButton" 
+import styled from "styled-components";
 
+const MainDiv = styled.div``;
+const LeftDiv = styled.div``;
+const RightDiv = styled.div``;
 
 const Main = () => {
   return (
-    <main className='main'>
-      <SearchButton />
-    </main>
-  )
-}
+    <MainDiv>
+      <LeftDiv></LeftDiv>
+      <RightDiv></RightDiv>
+    </MainDiv>
+  );
+};
 
-export default Main
+export default Main;
