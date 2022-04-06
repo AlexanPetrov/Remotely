@@ -6,17 +6,17 @@ import Search from "./pages/Search";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 
-//testing main
+//testing
 const App = () => {
   return (
     <Router>
       <NavBar />
       <Routes>
-        <Route path="/pages/Home" element={<Home />} />
-        <Route path="/pages/About" element={<About />} />
-        <Route path="/pages/Contact" element={<Contact />} />
-        <Route path="/pages/Post" element={<Post />} />
-        <Route path="/pages/Search" element={<Search />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Contact" element={<Contact />} />
+        <Route path="/Post" element={<Post />} />
+        <Route path="/Search" element={<Search />} />
       </Routes>
     </Router>
   );
