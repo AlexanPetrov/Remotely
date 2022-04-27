@@ -2,7 +2,6 @@ import Form from "../components/Form";
 import styled from "styled-components";
 import Womanandchild from "../styles/womanandchild.png";
 
-
 const MainDiv = styled.div`
   font-family: "Poppins", sans-serif;
   display: flex;
@@ -18,7 +17,6 @@ const MainDiv = styled.div`
 
 const PicDiv = styled.div``;
 
-
 const Post = () => {
   return (
     <MainDiv>
@@ -27,7 +25,7 @@ const Post = () => {
         <img src={Womanandchild} alt="woman and child"></img>
       </PicDiv>
     </MainDiv>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;
