@@ -9,6 +9,16 @@ const MainDiv = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0px 42px;
+
+  .link {
+    text-decoration: none;
+    color: black;
+  }
+  .mid_btn {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+  }
 `;
 const LogoDiv = styled.div`
   display: flex;
@@ -17,6 +27,13 @@ const LogoDiv = styled.div`
   .logo {
     height: 40px;
   }
+`;
+const CompanyName = styled.h1`
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 21px;
+  text-decoration: none;
 `;
 const MiddleBtnDiv = styled.div`
   .mid_btn {
@@ -28,12 +45,12 @@ const PostBtnDiv = styled.div``;
 const NavBar = () => {
   return (
     <MainDiv>
-      <Link to="/">
+      <Link to="/" className="link">
         <LogoDiv>
           <div>
             <img src={Logo} alt="logo"></img>
           </div>
-          <div>Remotely</div>
+          <CompanyName>Remotely</CompanyName>
         </LogoDiv>
       </Link>
       <MiddleBtnDiv>

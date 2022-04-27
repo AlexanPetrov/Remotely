@@ -7,7 +7,9 @@ const MainDiv = styled.div`
   font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: space-evenly;
-  padding: 43.4236px;
+  padding: 43.4236px 20px;
+
+  max-height: 79vh;
 
   h1 {
     font-weight: 900;
@@ -18,14 +20,23 @@ const MainDiv = styled.div`
 const LeftDiv = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 50px 0px;
+  justify-content: space-around;
+  padding: 0px 70px;
+
   span {
     color: #ff5a5f;
   }
 `;
 const TrustedDiv = styled.div``;
-const RightDiv = styled.div``;
+const RightDiv = styled.div`
+  max-height: 90vh;
+  img {
+    height: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
 
 const Home = () => {
   return (
