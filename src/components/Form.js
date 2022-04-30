@@ -38,9 +38,18 @@ const Form = () => {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    alert(inputs);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const body = {inputs};
+      const res = await fetch("http://localhost:5001/jobs", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(body)
+    });
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   return (
