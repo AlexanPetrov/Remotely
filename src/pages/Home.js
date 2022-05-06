@@ -23,8 +23,80 @@ const LeftDiv = styled.div`
   justify-content: space-around;
   padding: 0px 70px;
 
+  color: #555555;
   span {
     color: #ff5a5f;
+  }
+
+  p {
+    font-family: "Poppins";
+    font-style: normal;
+    font-size: 25px;
+  }
+
+  /* SEE JOBS BUTTON */
+  .button-56 {
+    align-items: center;
+    background-color: #ff5a5f;
+    /* background-color: #fee6e3; */
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: White;
+    /* color: #111; */
+    cursor: pointer;
+    display: flex;
+    font-family: Nunito, sans-serif;
+    font-size: 16px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+
+  .button-56:after {
+    background-color: #111;
+    border-radius: 8px;
+    content: "";
+    display: block;
+    height: 48px;
+    left: 0;
+    width: 100%;
+    position: absolute;
+    top: -2px;
+    transform: translate(8px, 8px);
+    transition: transform 0.2s ease-out;
+    z-index: -1;
+  }
+
+  .button-56:hover:after {
+    transform: translate(0, 0);
+  }
+
+  .button-56:active {
+    background-color: #ffdeda;
+    outline: 0;
+  }
+
+  .button-56:hover {
+    outline: 0;
+  }
+
+  @media (min-width: 768px) {
+    .button-56 {
+      padding: 0 40px;
+    }
+  }
+
+  .link {
+    text-decoration: none;
   }
 `;
 const TrustedDiv = styled.div``;
@@ -49,7 +121,10 @@ const Home = () => {
           Looking for a job? Remotely is the best open source platform to find
           remote jobs for FREE!
         </p>
-        <Link to="/search">SEE JOBS</Link>
+        <Link className="link" to="/search">
+          <button class="button-56">SEE JOBS!</button>
+        </Link>
+
         <TrustedDiv>
           <p>Trusted by:</p>
           <img src={Media} alt="guy"></img>

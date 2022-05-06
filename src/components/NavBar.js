@@ -8,7 +8,7 @@ const MainDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 42px;
+  padding: 0px 42px 10px;
 
   .link {
     text-decoration: none;
@@ -40,7 +40,40 @@ const MiddleBtnDiv = styled.div`
     padding: 10px;
   }
 `;
-const PostBtnDiv = styled.div``;
+
+const PostBtnDiv = styled.div`
+  overflow: visible;
+
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn {
+    width: 170px;
+    height: 55px;
+    font-size: 18px;
+    background: #fff;
+    border: 2px solid;
+    border-radius: 20px;
+    color: #ff5a5f;
+    font-family: "Nunito", sans-serif;
+    font-style: bold;
+    font-weight: 700;
+    font-size: 17.1951px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.4s;
+  }
+
+  .btn:hover {
+    box-shadow: inset 0 0 0 4px #ef476f, inset 0 0 0 8px #ffd166,
+      inset 0 0 0 12px #06d6a0, inset 0 0 0 16px #118ab2;
+    background: #073b4c;
+    color: #fff;
+  }
+`;
 
 const NavBar = () => {
   return (
@@ -61,8 +94,13 @@ const NavBar = () => {
           Contact Us
         </Link>
       </MiddleBtnDiv>
+
       <PostBtnDiv>
-        <Link to="/post">Post Job</Link>
+        <Link className="link" to="/post">
+          <div class="main">
+            <button class="btn">Post Job</button>
+          </div>
+        </Link>
       </PostBtnDiv>
     </MainDiv>
   );

@@ -8,6 +8,8 @@ const MainDiv = styled.div`
 `;
 const Heading = styled.h1`
   margin-left: 10px;
+  font-family: "Nunito";
+  font-style: normal;
 `;
 const CardsDiv = styled.div`
   display: flex;
@@ -15,6 +17,9 @@ const CardsDiv = styled.div`
   width: 100%;
   justify-content: space-around;
   padding-bottom: 50px;
+
+  font-family: "Nunito";
+  font-style: normal;
 `;
 
 const Search = () => {

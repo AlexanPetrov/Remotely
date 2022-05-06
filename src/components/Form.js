@@ -4,28 +4,96 @@ import { useState } from "react";
 const FormDiv = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 30px 20px;
-  width: 692px;
-  height: 814px;
-  background: #ffffff;
-  box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.1);
-  border-radius: 15px;
+  align-items: center;
+  width: 100%;
+  form {
+    width: 100%;
+    padding-bottom: 30px;
+  }
+  h2 {
+    letter-spacing: 3.53333px;
+    color: black;
+  }
+  .submitBtn {
+    display: flex;
+  }
+  input[type="submit"] {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    background: rgb(253, 121, 96);
+    background: linear-gradient(90deg, #fd7960 3.27%, #e15ad8 100%);
+    padding: 10px 0;
+    width: 100%;
+    border-radius: 10px;
+    margin: auto;
+    text-decoration: none;
+    border: none;
+    color: white;
+    font-size: 15px;
+  }
+  lineBreak {
+    display: block;
+    margin-bottom: 7px;
+  }
+  span {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
 `;
 
 const InputDiv = styled.div`
+  padding: 8px 0px;
+
   input,
   label,
   select {
     display: block;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 2px;
+    color: #555555;
+    padding: 5px 0px;
+    border-radius: 8px;
+    border-width: 0.7px;
+  }
+  label {
+    font-weight: 500;
+    padding-right: 50px;
   }
 
   .jobTypeLabel {
     display: inline-block;
   }
+
   fieldset {
+    border: 0;
     display: flex;
+    flex-wrap: wrap;
+    label {
+      margin-top: 3px;
+      padding-left: 5px;
+    }
+  }
+  .fieldset_input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .textFieldBox {
+    width: 100%;
+    padding-left: 15px;
+    background-color: transparent;
+  }
+  #description {
+    background-color: transparent;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 2px;
+    color: #555555;
+    padding-left: 10px;
+    border-radius: 8px;
+    border-width: 0.7px;
+    height: 80px;
   }
 `;
 
@@ -46,7 +114,10 @@ const Form = () => {
   return (
     <FormDiv>
       <form onSubmit={handleSubmit}>
-        <h3>POST A JOB</h3>
+        <h2>POST A JOB</h2>
+        {/*  */}
+
+        {/*  */}
         <InputDiv>
           <label>
             COMPANY NAME
@@ -56,6 +127,7 @@ const Form = () => {
               value={inputs.name || ""}
               onChange={handleChange}
               placeholder="GOOGLE"
+              class="textFieldBox"
             />
           </label>
         </InputDiv>
@@ -69,6 +141,7 @@ const Form = () => {
               value={inputs.title || ""}
               onChange={handleChange}
               placeholder="SOFTWARE ENGINEER"
+              class="textFieldBox"
             />
           </label>
         </InputDiv>
@@ -76,13 +149,12 @@ const Form = () => {
         <InputDiv>
           <label>
             JOB DESCRIPTION
-            <input
-              type="text"
-              name="description"
-              value={inputs.description || ""}
-              onChange={handleChange}
-              placeholder="DESCRIBE THE JOB"
-            />
+            <textarea
+              name="text"
+              id="description"
+              class="textFieldBox"
+              wrap="soft"
+            ></textarea>
           </label>
         </InputDiv>
 
@@ -92,16 +164,17 @@ const Form = () => {
             <input
               type="number"
               name="minSalary"
-              value={inputs.salary || ""}
-              onChange={handleChange}
               placeholder="MIN"
+              class="textFieldBox"
+              min="0"
             />
+            <lineBreak />
             <input
               type="number"
               name="maxSalary"
-              value={inputs.salary || ""}
-              onChange={handleChange}
               placeholder="Max (Optional)"
+              class="textFieldBox"
+              min="0"
             />
           </label>
         </InputDiv>
@@ -109,17 +182,20 @@ const Form = () => {
         <InputDiv>
           <label for="heading">JOB TYPE</label>
           <fieldset>
-            <div>
+            {/* <span> */}
+            <div class="fieldset_input">
               <input type="radio" id="fulltime" name="drone" value="fulltime" />
               <label for="fulltime">FULL-TIME</label>
             </div>
 
-            <div>
+            <div class="fieldset_input">
               <input type="radio" id="partTime" name="drone" value="partTime" />
               <label for="partTime">PART-TIME</label>
             </div>
+            {/* </span> */}
+            {/* <span> */}
 
-            <div>
+            <div class="fieldset_input">
               <input
                 type="radio"
                 id="internship"
@@ -129,21 +205,26 @@ const Form = () => {
               />
               <label for="internship">INTERNSHIP</label>
             </div>
-            <div>
+            <div class="fieldset_input">
               <input type="radio" id="contract" name="drone" value="contract" />
               <label for="contract">CONTRACT</label>
             </div>
-            <div>
+            <div class="fieldset_input">
               <input type="radio" id="other" name="drone" value="other" />
               <label for="other">OTHER</label>
             </div>
+            {/* </span> */}
           </fieldset>
         </InputDiv>
 
         <InputDiv>
           <label>
             JOB LOCATION
-            <select value={inputs.location || ""} onChange={handleChange}>
+            <select
+              value={inputs.location || ""}
+              onChange={handleChange}
+              class="textFieldBox"
+            >
               <option value="NY">New York</option>
               <option value="SF">San Francisco</option>
               <option value="P">Paris</option>
@@ -161,11 +242,13 @@ const Form = () => {
               value={inputs.level || ""}
               onChange={handleChange}
               placeholder="Entry"
+              class="textFieldBox"
             />
           </label>
         </InputDiv>
-
-        <input type="submit" />
+        <div class="submitBtn">
+          <input type="submit" />
+        </div>
       </form>
     </FormDiv>
   );
