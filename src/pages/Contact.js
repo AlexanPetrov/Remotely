@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import animationData from "../styles/contact2.json";
-import Lottie from "react-lottie";
+// import Lottie from "react-lottie";
 
 const Main = styled.div`
   display: flex;
@@ -58,7 +58,7 @@ const Contact = () => {
           <EmailLink href="mailto: fakeemail@gmail.com">Send Email</EmailLink>
         </div>
       </LeftDiv>
-      <Lottie options={defaultOptions} height={400} width={400} />
+      {/* <Lottie options={defaultOptions} height={400} width={400} /> */}
     </Main>
   );
 };
