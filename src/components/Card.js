@@ -28,18 +28,40 @@ const MainDiv = styled.div`
     padding-bottom: 14px;
     width: 100%;
     border-radius: 10px;
-    margin: auto;
+    margin-top: 7px;
     text-decoration: none;
     border: none;
     color: white;
     font-size: 17px;
+    cursor: pointer;
+  }
+
+  .description {
+    max-height: 95px;
+    overflow: scroll;
+    text-overflow: ellipsis;
   }
 `;
 const BottomDiv = styled.div`
   width: 100%;
 `;
 const Title = styled.h3`
-  font-size: 20px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: 0.833703px;
+  text-transform: capitalize;
+  background: linear-gradient(
+    90.67deg,
+    #8355e9 2.02%,
+    #c149b4 21.4%,
+    #ff3e80 48.52%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
 `;
 const SalaryRange = styled.div`
   font-size: 17px;
@@ -47,6 +69,11 @@ const SalaryRange = styled.div`
 `;
 const Description = styled.p`
   color: #555555;
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  text-overflow: ellipsis;
 `;
 const Tags = styled.div`
   display: flex;
@@ -54,6 +81,13 @@ const Tags = styled.div`
 `;
 const Company = styled.div`
   float: right;
+  p {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
 `;
 
 const Card = ({ data }) => {
@@ -62,22 +96,28 @@ const Card = ({ data }) => {
     <MainDiv>
       <Title>{data.title}</Title>
       <SalaryRange>
-        ${data.minSalary}
-        {data.maxSalary ? " - $" + data.maxSalary : ""}/yearly
+        ${data.min_salary}
+        {data.max_salary ? " - $" + data.max_salary : ""}/yearly
       </SalaryRange>
-      <Description>{data.description}</Description>
+      <div className="description">
+        <Description>{data.description}</Description>
+      </div>
+
       <BottomDiv>
         <Tags>
           {/* location */}
-          <Tag data={data.Location} />
+          <Tag data={data.location} />
           {/* job level */}
-          <Tag data={data.jobLevel} />
+          <Tag data={data.level} />
           {/* job type  */}
-          <Tag data={data.jobType} />
+          <Tag data={data.type} />
         </Tags>
-        <button class="button">APPLY NOW</button>
+        <a href={data.link} target="_blank" rel="noreferrer">
+          <button className="button">APPLY NOW</button>
+        </a>
+
         <Company>
-          <p>{data.companyName}</p>
+          <p>{data.company_name}</p>
         </Company>
       </BottomDiv>
     </MainDiv>

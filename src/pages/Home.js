@@ -14,7 +14,7 @@ const MainDiv = styled.div`
   h1 {
     font-weight: 900;
     font-size: 50px;
-    width: 60%;
+    width: 100%;
   }
 `;
 const LeftDiv = styled.div`
@@ -122,7 +122,7 @@ const Home = () => {
           remote jobs for FREE!
         </p>
         <Link className="link" to="/search">
-          <button class="button-56">SEE JOBS!</button>
+          <button className="button-56">SEE JOBS!</button>
         </Link>
 
         <TrustedDiv>

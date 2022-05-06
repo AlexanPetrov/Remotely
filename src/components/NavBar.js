@@ -97,8 +97,8 @@ const NavBar = () => {
 
       <PostBtnDiv>
         <Link className="link" to="/post">
-          <div class="main">
-            <button class="btn">Post Job</button>
+          <div className="containermain">
+            <button className="btn">Post Job</button>
           </div>
         </Link>
       </PostBtnDiv>

@@ -109,12 +109,12 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const body = {inputs};
+      const body = { inputs };
       const res = await fetch("http://localhost:5001/jobs", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify(body)
-    });
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
     } catch (err) {
       console.error(err.message);
     }
@@ -136,7 +136,7 @@ const Form = () => {
               value={inputs.name || ""}
               onChange={handleChange}
               placeholder="GOOGLE"
-              class="textFieldBox"
+              className="textFieldBox"
             />
           </label>
         </InputDiv>
@@ -150,7 +150,7 @@ const Form = () => {
               value={inputs.title || ""}
               onChange={handleChange}
               placeholder="SOFTWARE ENGINEER"
-              class="textFieldBox"
+              className="textFieldBox"
             />
           </label>
         </InputDiv>
@@ -161,7 +161,7 @@ const Form = () => {
             <textarea
               name="text"
               id="description"
-              class="textFieldBox"
+              className="textFieldBox"
               wrap="soft"
             ></textarea>
           </label>
@@ -174,7 +174,7 @@ const Form = () => {
               type="number"
               name="minSalary"
               placeholder="MIN"
-              class="textFieldBox"
+              className="textFieldBox"
               min="0"
             />
             <lineBreak />
@@ -182,7 +182,7 @@ const Form = () => {
               type="number"
               name="maxSalary"
               placeholder="Max (Optional)"
-              class="textFieldBox"
+              className="textFieldBox"
               min="0"
             />
           </label>
@@ -192,19 +192,19 @@ const Form = () => {
           <label for="heading">JOB TYPE</label>
           <fieldset>
             {/* <span> */}
-            <div class="fieldset_input">
+            <div className="fieldset_input">
               <input type="radio" id="fulltime" name="drone" value="fulltime" />
               <label for="fulltime">FULL-TIME</label>
             </div>
 
-            <div class="fieldset_input">
+            <div className="fieldset_input">
               <input type="radio" id="partTime" name="drone" value="partTime" />
               <label for="partTime">PART-TIME</label>
             </div>
             {/* </span> */}
             {/* <span> */}
 
-            <div class="fieldset_input">
+            <div className="fieldset_input">
               <input
                 type="radio"
                 id="internship"
@@ -214,11 +214,11 @@ const Form = () => {
               />
               <label for="internship">INTERNSHIP</label>
             </div>
-            <div class="fieldset_input">
+            <div className="fieldset_input">
               <input type="radio" id="contract" name="drone" value="contract" />
               <label for="contract">CONTRACT</label>
             </div>
-            <div class="fieldset_input">
+            <div className="fieldset_input">
               <input type="radio" id="other" name="drone" value="other" />
               <label for="other">OTHER</label>
             </div>
@@ -232,7 +232,7 @@ const Form = () => {
             <select
               value={inputs.location || ""}
               onChange={handleChange}
-              class="textFieldBox"
+              className="textFieldBox"
             >
               <option value="NY">New York</option>
               <option value="SF">San Francisco</option>
@@ -251,11 +251,11 @@ const Form = () => {
               value={inputs.level || ""}
               onChange={handleChange}
               placeholder="Entry"
-              class="textFieldBox"
+              className="textFieldBox"
             />
           </label>
         </InputDiv>
-        <div class="submitBtn">
+        <div className="submitBtn">
           <input type="submit" />
         </div>
       </form>
