@@ -9,7 +9,7 @@ const MainDiv = styled.div`
   padding: 30px 20px;
   margin: 10px;
   width: 376px;
-  height: 337px;
+  height: 360px;
   background: #ffffff;
   box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.1);
   border-radius: 15px;
@@ -44,6 +44,7 @@ const MainDiv = styled.div`
 `;
 const BottomDiv = styled.div`
   width: 100%;
+  margin-top: 10px;
 `;
 const Title = styled.h3`
   font-family: "Poppins", sans-serif;
@@ -81,6 +82,7 @@ const Tags = styled.div`
 `;
 const Company = styled.div`
   float: right;
+  justify-self: flex-end;
   p {
     font-family: "Nunito";
     font-style: normal;
@@ -95,8 +97,15 @@ const Card = ({ data }) => {
     <MainDiv>
       <Title>{data.title}</Title>
       <SalaryRange>
-        ${data.min_salary}
-        {data.max_salary ? " - $" + data.max_salary : ""}/yearly
+        $
+        {data.min_salary.toLocaleString(undefined, {
+          maximumFractionDigits: 2,
+        })}
+        {data.max_salary
+          ? " - $" +
+            data.max_salary.toLocaleString(undefined, { maximumFraction: 2 })
+          : ""}
+        /yearly
       </SalaryRange>
       <div className="description">
         <Description>{data.description}</Description>

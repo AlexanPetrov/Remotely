@@ -125,13 +125,18 @@ const Form = () => {
         level: e.target.level.value,
       };
 
-      const res = await fetch("http://localhost:5001/api/jobs", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/api/jobs`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-
-      navigate("/search");
+      console.log(res.status);
+      if (res.status === 500) {
+        alert("Something went wrong");
+      } else {
+        alert("Job posted successfully");
+        navigate("/search");
+      }
     } catch (err) {
       console.error(err.message);
     }
@@ -267,6 +272,8 @@ const Form = () => {
               className="textFieldBox"
               name="location"
             >
+              <option value="Anywhere">Anywhere</option>
+              <option value="US Only">USA Only</option>
               <option value="New York">New York</option>
               <option value="San Francisco">San Francisco</option>
               <option value="Austin">Austin</option>
