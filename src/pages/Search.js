@@ -30,7 +30,6 @@ const Search = () => {
     fetch("http://localhost:5001/api/jobs")
       .then((res) => res.json()) // convert to json
       .then(({ data }) => {
-        console.log(data.length);
         /* Setting the state of jobs to the data that is returned from the API. */
         setJobs(data);
         /* Setting the state of numberOfJob to the length of the data that is returned from the API. */

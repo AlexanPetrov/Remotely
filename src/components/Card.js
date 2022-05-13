@@ -91,7 +91,6 @@ const Company = styled.div`
 `;
 
 const Card = ({ data }) => {
-  console.log(data);
   return (
     <MainDiv>
       <Title>{data.title}</Title>

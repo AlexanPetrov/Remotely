@@ -124,14 +124,12 @@ const Form = () => {
         location: e.target.location.value,
         level: e.target.level.value,
       };
-      console.log(data);
 
       const res = await fetch("http://localhost:5001/api/jobs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
-      console.log(res);
 
       navigate("/search");
     } catch (err) {
