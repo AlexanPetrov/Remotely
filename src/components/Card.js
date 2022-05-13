@@ -112,7 +112,7 @@ const Card = ({ data }) => {
           {/* job type  */}
           <Tag data={data.type} />
         </Tags>
-        <a href={data.link} target="_blank" rel="noreferrer">
+        <a href={data.url} target="_blank" rel="noreferrer">
           <button className="button">APPLY NOW</button>
         </a>
 

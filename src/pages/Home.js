@@ -25,7 +25,16 @@ const LeftDiv = styled.div`
 
   color: #555555;
   span {
-    color: #ff5a5f;
+    /* color: #ff5a5f; */
+
+    background: linear-gradient(
+      90deg,
+      rgba(131, 85, 233, 1) 0%,
+      rgba(255, 90, 95, 1) 62%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   p {
@@ -115,7 +124,8 @@ const Home = () => {
     <MainDiv>
       <LeftDiv>
         <h1>
-          Find Your Dream Remote <span>Job</span> In One Place
+          Find Your Dream <br />
+          <span>Remote Job</span> In One Place
         </h1>
         <p>
           Looking for a job? Remotely is the best open source platform to find

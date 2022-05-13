@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const FormDiv = styled.div`
   display: flex;
@@ -98,6 +99,7 @@ const InputDiv = styled.div`
 `;
 
 const Form = () => {
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
@@ -108,13 +110,30 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
-      const body = { inputs };
-      const res = await fetch("http://localhost:5001/jobs", {
+      const data = {
+        company_name: e.target.name.value,
+        title: e.target.title.value,
+        description: e.target.description.value,
+        min_salary: e.target.minSalary.value,
+        max_salary: !(e.target.maxSalary.value > 0)
+          ? null
+          : e.target.maxSalary.value,
+        type: e.target.jobType.value,
+        location: e.target.location.value,
+        level: e.target.level.value,
+      };
+      console.log(data);
+
+      const res = await fetch("http://localhost:5001/api/jobs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
+        body: JSON.stringify(data),
       });
+      console.log(res);
+
+      navigate("/search");
     } catch (err) {
       console.error(err.message);
     }
@@ -159,7 +178,7 @@ const Form = () => {
           <label>
             JOB DESCRIPTION
             <textarea
-              name="text"
+              name="description"
               id="description"
               className="textFieldBox"
               wrap="soft"
@@ -177,7 +196,7 @@ const Form = () => {
               className="textFieldBox"
               min="0"
             />
-            <lineBreak />
+            {/* <lineBreak /> */}
             <input
               type="number"
               name="maxSalary"
@@ -189,17 +208,27 @@ const Form = () => {
         </InputDiv>
 
         <InputDiv>
-          <label for="heading">JOB TYPE</label>
-          <fieldset>
+          <label htmlFor="heading">JOB TYPE</label>
+          <fieldset onChange={handleChange}>
             {/* <span> */}
             <div className="fieldset_input">
-              <input type="radio" id="fulltime" name="drone" value="fulltime" />
-              <label for="fulltime">FULL-TIME</label>
+              <input
+                type="radio"
+                id="fulltime"
+                name="jobType"
+                value="full-time"
+              />
+              <label htmlFor="fulltime">FULL-TIME</label>
             </div>
 
             <div className="fieldset_input">
-              <input type="radio" id="partTime" name="drone" value="partTime" />
-              <label for="partTime">PART-TIME</label>
+              <input
+                type="radio"
+                id="partTime"
+                name="jobType"
+                value="part-time"
+              />
+              <label htmlFor="partTime">PART-TIME</label>
             </div>
             {/* </span> */}
             {/* <span> */}
@@ -208,19 +237,24 @@ const Form = () => {
               <input
                 type="radio"
                 id="internship"
-                name="drone"
+                name="jobType"
                 value="internship"
                 placeholder="Optional"
               />
-              <label for="internship">INTERNSHIP</label>
+              <label htmlFor="internship">INTERNSHIP</label>
             </div>
             <div className="fieldset_input">
-              <input type="radio" id="contract" name="drone" value="contract" />
-              <label for="contract">CONTRACT</label>
+              <input
+                type="radio"
+                id="contract"
+                name="jobType"
+                value="contract"
+              />
+              <label htmlFor="contract">CONTRACT</label>
             </div>
             <div className="fieldset_input">
-              <input type="radio" id="other" name="drone" value="other" />
-              <label for="other">OTHER</label>
+              <input type="radio" id="other" name="jobType" value="other" />
+              <label htmlFor="other">OTHER</label>
             </div>
             {/* </span> */}
           </fieldset>
@@ -233,11 +267,12 @@ const Form = () => {
               value={inputs.location || ""}
               onChange={handleChange}
               className="textFieldBox"
+              name="location"
             >
-              <option value="NY">New York</option>
-              <option value="SF">San Francisco</option>
-              <option value="P">Paris</option>
-              <option value="T">Tokio</option>
+              <option value="New York">New York</option>
+              <option value="San Francisco">San Francisco</option>
+              <option value="Austin">Austin</option>
+              <option value="Miami">Miami</option>
             </select>
           </label>
         </InputDiv>
