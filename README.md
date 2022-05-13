@@ -1,6 +1,6 @@
 # Remotely
 
-![logo](https://github.com/AlexanPetrov/Remotely/blob/main/src/styles/logo.jpg?raw=true)
+![logo](https://raw.githubusercontent.com/AlexanPetrov/Remotely/main/public/favicon.ico)
 
 https://rebrand.ly/remotely
 
