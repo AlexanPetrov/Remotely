@@ -1,4 +1,4 @@
-# Remotely
+# Remotely (REACT JS)
 
 ![logo](https://raw.githubusercontent.com/AlexanPetrov/Remotely/main/public/favicon.ico)
 
