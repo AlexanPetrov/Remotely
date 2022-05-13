@@ -1,3 +1,4 @@
+import Helmet from "react-helmet";
 import styled from "styled-components";
 import animationData from "../styles/contact2.json";
 // import Lottie from "react-lottie";
@@ -49,6 +50,9 @@ const Contact = () => {
   };
   return (
     <Main>
+      <Helmet>
+        <title>Don't contact me</title>
+      </Helmet>
       <LeftDiv>
         <Heading>Still have questions?</Heading>
         <SubHeading>

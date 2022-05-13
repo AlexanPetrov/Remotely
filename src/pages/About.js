@@ -3,6 +3,7 @@ import FarhanAvatar from "../styles/farhan.png";
 import AlexAvatar from "../styles/alex.png";
 import ProfAvatar from "../styles/prof.png";
 import styled from "styled-components";
+import Helmet from "react-helmet";
 
 const Main = styled.div`
   display: flex;
@@ -13,6 +14,9 @@ const Main = styled.div`
 const About = () => {
   return (
     <Main>
+      <Helmet>
+        <title>Remotely: About Us</title>
+      </Helmet>
       <BioCard
         avatar={ProfAvatar}
         name="Sumaiya Tabassum"

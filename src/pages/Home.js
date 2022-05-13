@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Helmet } from "react-helmet";
 import Guy from "../styles/guy.jpg";
 import Media from "../styles/media.jpg";
 
@@ -122,6 +123,10 @@ const RightDiv = styled.div`
 const Home = () => {
   return (
     <MainDiv>
+      <Helmet>
+        <title>Remotely Home</title>
+        <meta name="description" content="Remotely Home" />
+      </Helmet>
       <LeftDiv>
         <h1>
           Find Your Dream <br />

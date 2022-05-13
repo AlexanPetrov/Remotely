@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Helmet from "react-helmet";
 import styled from "styled-components";
 import Card from "../components/Card";
 
@@ -122,6 +123,9 @@ const Search = () => {
   if (loading) {
     return (
       <Spinner>
+        <Helmet>
+          <title>Loading..</title>
+        </Helmet>
         <div class="spinner">
           <div></div>
           <div></div>
@@ -136,6 +140,9 @@ const Search = () => {
   } else {
     return (
       <MainDiv>
+        <Helmet>
+          <title>WOW! Remote jobs!</title>
+        </Helmet>
         <Heading>Showing {numberOfJob} jobs</Heading>
         <CardsDiv>
           {jobs.map((d, index) => (

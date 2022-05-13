@@ -1,6 +1,7 @@
 import Form from "../components/Form";
 import styled from "styled-components";
 import Womanandchild from "../styles/womanandchild.png";
+import Helmet from "react-helmet";
 
 const MainDiv = styled.div`
   font-family: "Poppins", sans-serif;
@@ -42,6 +43,13 @@ const PicDiv = styled.div`
 const Post = () => {
   return (
     <MainDiv>
+      <Helmet>
+        <title>Remotely: New Job</title>
+        <meta
+          name="description"
+          content="Add a new remote job to Remotely.com for free"
+        />
+      </Helmet>
       <FormDiv>
         <Form />
       </FormDiv>
